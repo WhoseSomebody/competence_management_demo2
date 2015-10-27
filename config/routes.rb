@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'index' => "home#index"
+
+  get 'about_us' => "home#about_us"
+
+  resources :feedbacks
+
+  get 'partners' => "home#partners"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
