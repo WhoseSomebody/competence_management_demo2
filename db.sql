@@ -1,4 +1,4 @@
- CREATE TABLE profession_names (
+CREATE TABLE profession_names (
   id integer primary key AUTOINCREMENT,
   name VARCHAR(45) NOT NULL
   );

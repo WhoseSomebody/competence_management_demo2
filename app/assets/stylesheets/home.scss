@@ -2,17 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .whole {
-	min-height:100%; 
+	min-height:827px; 
 	padding:0;
 }
 .left {
 	text-align:center; 
 	width:80%; 
 	float:left;
+	height:827px; 
 }
 .right {
 	width:20%;
-	height:100%;
+	height:827px; 
 	padding-bottom:20px;
 	float:right;
 	background:rgba(230,210,230,.1);

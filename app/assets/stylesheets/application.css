@@ -110,10 +110,10 @@ table.partners tr:hover h1{
 
 a {
 	text-decoration: none;
-	color: gray;
+	color: rgba(255, 154, 155, 1);
 }
 a:visited {
- 	color: gray;
+ 	color: rgba(255, 154, 155, 1);
 }
 header {
 	background: rgba(100,100,100,.1);
@@ -148,26 +148,6 @@ header {
 	height: 100%;
 	padding: 15px 10px;
 }
-.whole {
-	min-height:100%; 
-	padding:0;
-}
-.left {
-	text-align:center; 
-	width:80%; 
-	float:left;
-}
-.right {
-	width:20%;
-	height:100%;
-	padding-bottom:20px;
-	float:right;
-	background:rgba(230,210,230,.1);
-}
-.right a {
-	height:100%; 
-	display:block;
-}
-.right a img {
-	padding: 245px 15px;
+h1, h2, h3 {
+	color: rgba(255, 104, 115, 1);
 }
