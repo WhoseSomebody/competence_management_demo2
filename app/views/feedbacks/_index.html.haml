@@ -1,0 +1,18 @@
+%p#notice= notice
+%h1 Відгуки користувачів
+%table
+  %thead
+    %tr
+      %td Ім’я
+      %td E-mail
+      %td Зміст
+      %td Час створення
+  %tbody
+    - feedbacks.each do |feedback|
+      %tr
+        %td= feedback.name
+        %td= feedback.email
+        %td= feedback.content
+        %td= l(feedback.created_at, format: "%a %d %b %H:%M")
+/       %td= link_to 'Видалити', feedback, method: :delete, data: { confirm: 'Ви впевнені?' }
+= will_paginate feedbacks, previous_label: "<~", next_label: "~>"

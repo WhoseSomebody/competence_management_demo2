@@ -1,0 +1,19 @@
+= form_for @feedback  do |f|
+  %h1 Зворотній зв’язок
+
+  %div Ім’я 
+  = f.text_field :name, class: @feedback.errors[:name].any? ? "error_input" : ""
+
+
+  %div Електрона пошта
+  = f.text_field :email, class: @feedback.errors[:email].any? ? "error_input" : ""
+  - if @feedback.errors.messages.values_at(:email).include?(["@"])
+    .error_message Введено невірний імейл.
+
+  %div Вміст
+  = f.text_area :content, class: @feedback.errors[:content].any? ? "error_input" : ""
+
+  - if @feedback.errors.messages.values_at(:email, :name, :content).include?(["не може бути порожнім"])
+    .error_message (Всі поля мають бути заповнені)
+  %br
+  = f.submit "Додати"

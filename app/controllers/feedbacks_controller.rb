@@ -4,22 +4,8 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks
   # GET /feedbacks.json
   def index
-    #@feedbacks = Feedback.all
-    @feedbacks = Feedback.paginate(:page => params[:page], :per_page => 5)
-  end
-
-  # GET /feedbacks/1
-  # GET /feedbacks/1.json
-  def show
-  end
-
-  # GET /feedbacks/new
-  def new
     @feedback = Feedback.new
-  end
-
-  # GET /feedbacks/1/edit
-  def edit
+    @feedbacks_p = Feedback.order("name").paginate(:page => params[:page], :per_page => 10)
   end
 
   # POST /feedbacks
@@ -27,29 +13,20 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.new(feedback_params)
 
-    respond_to do |format|
-      if @feedback.save
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
-        format.json { render :show, status: :created, location: @feedback }
-      else
-        format.html { render :new }
-        format.json { render json: @feedback.errors, status: :unprocessable_entity }
+    if @feedback.valid?
+      @feedback.save
+      respond_to do |format|
+        format.html { 
+          redirect_to feedbacks_url
+          flash[:alert] = 'Added'
+        }
       end
-    end
-  end
+    else
+      @feedbacks_p = Feedback.order("name").paginate(:page => params[:page], :per_page => 10)
 
-  # PATCH/PUT /feedbacks/1
-  # PATCH/PUT /feedbacks/1.json
-  def update
-    respond_to do |format|
-      if @feedback.update(feedback_params)
-        format.html { redirect_to @feedback, notice: 'Feedback was successfully updated.' }
-        format.json { render :show, status: :ok, location: @feedback }
-      else
-        format.html { render :edit }
-        format.json { render json: @feedback.errors, status: :unprocessable_entity }
-      end
+      render :index
     end
+
   end
 
   # DELETE /feedbacks/1
@@ -57,8 +34,10 @@ class FeedbacksController < ApplicationController
   def destroy
     @feedback.destroy
     respond_to do |format|
-      format.html { redirect_to feedbacks_url, notice: 'Feedback was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { 
+        redirect_to feedbacks_url
+        flash[:alert] = 'Destroyed' 
+      }
     end
   end
 
@@ -70,6 +49,6 @@ class FeedbacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feedback_params
-      params.require(:feedback).permit(:name, :email, :content)
+      params.require(:feedback).permit(:name, :email, :content, :created_at)
     end
 end

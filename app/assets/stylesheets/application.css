@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+.error_message {
+	color: rgba(255,0,0,0.7);
+}
+
+.error_input {
+	border: 2px solid red;
+}
+footer {
+	margin: 0 auto;
+}

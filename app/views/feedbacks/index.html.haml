@@ -1,0 +1,12 @@
+- if flash[:alert] == 'Added'
+  =javascript_tag "alert('Ваш відгук успішно залишено! Дякуємо.')"
+- elsif flash[:alert] == 'Destroyed'
+  =javascript_tag "alert('Ваш відгук успішно видалено!')"
+/ - if  @feedback.errors.any?
+/   = @feedback.errors.messages
+
+
+
+= render partial: "form"
+
+= render partial: "index", locals: {feedbacks: @feedbacks_p}
