@@ -1,0 +1,22 @@
+%header
+	%div#menu
+		%table
+			%tbody{:height => "50px"}
+				%tr
+				
+					%td.logo.link
+						%a{:href => "/", :title => "На Головну"}
+							= image_tag "logo1", size: '50x50', :style=>"margin:-3px 20px 0 0"
+					%td{:style=>"width:500px"}
+						/ %form{:action => "http://www.google.com", :method => "get", :style => "float:right; margin: 0 auto;"}
+						/ 	%input.tftextinput{:maxlength => "120", :name => "q", :size => "21", :type => "text"}
+						/ 	%input.tfbutton{:type => "submit", :value => "Пошук"}
+					%td.link
+						= link_to "Енциклопедія", "encyclopedia", :title => "Перегляд енциклопедії"
+					%td.link
+						= link_to 'Вхід', "/log_in", :title => "Увійти"
+					%td.link
+						= link_to 'Реєстрація',  "/sign_in", :title => "Реєстрація"
+
+				
+					

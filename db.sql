@@ -40,8 +40,8 @@ CREATE TABLE users (
   email VARCHAR(45) NOT NULL,
   profession_id integer,
   rating integer,
-  group integer NOT NULL DEFAULT 0,
-  FOREIGN KEY(profession_id) REFERENCES professions(id),
+  is_group integer NOT NULL DEFAULT 0,--------------------------------------------------------------------------
+  FOREIGN KEY(profession_id) REFERENCES professions(id)
   );
 
 CREATE TABLE questions (
@@ -55,12 +55,12 @@ CREATE TABLE questions (
   answ4_text VARCHAR(100),
   answ5_text VARCHAR(100),
   answ6_text VARCHAR(100),
-  answ1_pic bytea,
-  answ1_pic bytea,
-  answ1_pic bytea,
-  answ1_pic bytea,
-  answ1_pic bytea,
-  answ1_pic bytea,
+  answ1_pic bytea,------------------------------------------------------------------------------------
+  answ2_pic bytea,
+  answ3_pic bytea,
+  answ4_pic bytea,
+  answ5_pic bytea,
+  answ6_pic bytea,
   answ_correct integer NOT NULL,
   test_name_id integer NOT NULL,
   FOREIGN KEY(test_name_id) REFERENCES test_names(id)

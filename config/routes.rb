@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'encyclopedia' => 'encyclopedia#index'
+
   get 'index' => "home#index"
 
   get 'about_us' => "home#about_us"

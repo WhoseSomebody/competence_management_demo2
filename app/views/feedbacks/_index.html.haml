@@ -1,18 +1,18 @@
 %p#notice= notice
 %h1 Відгуки користувачів
-%table
-  %thead
-    %tr
-      %td Ім’я
-      %td E-mail
-      %td Зміст
-      %td Час створення
+%table.feddb_table
   %tbody
     - feedbacks.each do |feedback|
       %tr
+        %th Ім’я:
         %td= feedback.name
+        %td.creation_time_feedb{:rowspan => "3"}
+          = l feedback.created_at, format: "%a %d %b %H:%M"
+      %tr
+        %th E-mail:
         %td= feedback.email
+      %tr
+        %th Зміст:
         %td= feedback.content
-        %td= l(feedback.created_at, format: "%a %d %b %H:%M")
 /       %td= link_to 'Видалити', feedback, method: :delete, data: { confirm: 'Ви впевнені?' }
-= will_paginate feedbacks, previous_label: "<~", next_label: "~>"
+= will_paginate feedbacks, previous_label: "<<<", next_label: ">>>"

@@ -5,7 +5,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks.json
   def index
     @feedback = Feedback.new
-    @feedbacks_p = Feedback.order("name").paginate(:page => params[:page], :per_page => 10)
+    @feedbacks_p = Feedback.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 
   # POST /feedbacks
@@ -22,7 +22,7 @@ class FeedbacksController < ApplicationController
         }
       end
     else
-      @feedbacks_p = Feedback.order("name").paginate(:page => params[:page], :per_page => 10)
+      @feedbacks_p = Feedback.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 
       render :index
     end
