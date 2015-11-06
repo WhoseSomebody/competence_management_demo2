@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Min level of compet test:
+  = @profession.min_level_of_compet_test
+%p
+  %b Profession name:
+  = @profession.profession_name
+%p
+  %b Qualification name:
+  = @profession.qualification_name
+%p
+  %b Level:
+  = @profession.level
+
+= link_to 'Edit', edit_profession_path(@profession)
+\|
+= link_to 'Back', professions_path

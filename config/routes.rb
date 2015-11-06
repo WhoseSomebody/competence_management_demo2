@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :professions
   get 'encyclopedia' => 'encyclopedia#index'
 
   get 'index' => "home#index"

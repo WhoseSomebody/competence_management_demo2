@@ -17,24 +17,27 @@
  	margin:0 auto;
  }
  footer {
- 	width: 751px;
  	bottom: 0;
- 	position: absolute;
- 	background: rgba(100,100,100,.1);
+/* 	position: absolute;
+*/ 	background: rgba(240,240,240,1);
 	border-radius: 10px 10px 0 0 ;
 	padding: 10px 0;	
-
+	width:815px;
+	margin: 0 auto;
  }
  body {
  	margin: 0;
  	position: relative;
+ 	
  }
  .main {
  	width:791px;
  	margin:0 auto;
- 	background: rgba(200,200,200,.1);
+ 	background: white;
  	min-height: 100%;
  	padding-bottom:60px;
+ 	border-left: 2px solid #aaf;
+ 	border-right: 2px solid #aaf;
  }
  .main > * {
  	padding-left: 20px;
@@ -116,9 +119,11 @@ a:visited {
  	color: rgba(255, 154, 155, 1);
 }
 header {
-	background: rgba(100,100,100,.1);
+	background: rgba(240,240,240,1);
 	border-radius: 0 0 10px 10px;
 	height: 50px;
+	width:815px;
+	margin: 0 auto;
 }
 
 #menu {

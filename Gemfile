@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'will_paginate', '~> 3.0.5'
 gem "searchkick"
+gem 'dotenv-rails'
+gem "paperclip", "~> 4.3"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -36,7 +38,7 @@ gem 'rails-i18n', '~> 4.0.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
+group :development, :test ,:production do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

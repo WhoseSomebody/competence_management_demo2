@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  test_id: 
+  text_image: 1
+  question_text: MyString
+  is_active: false
+  difficulty: 1
+  is_open: false
+
+two:
+  test_id: 
+  text_image: 1
+  question_text: MyString
+  is_active: false
+  difficulty: 1
+  is_open: false

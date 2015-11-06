@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  question_id: 
+  choice_id: 
+  choice_self: MyString
+  is_correct: false
+  test_session_id: 
+
+two:
+  user_id: 
+  question_id: 
+  choice_id: 
+  choice_self: MyString
+  is_correct: false
+  test_session_id: 

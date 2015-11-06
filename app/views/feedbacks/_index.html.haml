@@ -14,5 +14,5 @@
       %tr
         %th Зміст:
         %td= feedback.content
-/       %td= link_to 'Видалити', feedback, method: :delete, data: { confirm: 'Ви впевнені?' }
+/        %td= link_to 'Видалити', feedback, method: :delete, data: { confirm: 'Ви впевнені?' }
 = will_paginate feedbacks, previous_label: "<<<", next_label: ">>>"

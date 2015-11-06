@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profession_id: 
+  competence_id: 
+  description: MyString
+
+two:
+  profession_id: 
+  competence_id: 
+  description: MyString
