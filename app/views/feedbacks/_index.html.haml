@@ -1,6 +1,6 @@
 / %p#notice= notice
 %h1 Відгуки користувачів
-%table.feddb_table
+%table.feddb_table{:style => "width:100%"}
   %tbody
     - feedbacks.each do |feedback|
       %tr
@@ -15,4 +15,5 @@
         %th Зміст:
         %td= feedback.content
 /        %td= link_to 'Видалити', feedback, method: :delete, data: { confirm: 'Ви впевнені?' }
-= will_paginate feedbacks, previous_label: "<<<", next_label: ">>>"
+%div{:style => "position: absolute; bottom: 0; margin: 0 auto; width: 55%; bottom: 40px;"}
+  = paginate feedbacks

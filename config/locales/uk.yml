@@ -1,5 +1,12 @@
 ---
 uk:
+  views:
+    pagination:
+      previous: "&lt; Назад"
+      next: "Вперед &gt;"
+      truncate: "..."
+      first: "Початок"
+      last: "Кінець"
   date:
     abbr_day_names:
     - нд.

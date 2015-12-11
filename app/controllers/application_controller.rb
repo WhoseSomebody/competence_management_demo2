@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   protected 
   	def ensure_login
-  		redirect_to login_path unless session[:user_id]
+  		redirect_to "/login" unless session[:user_id]
   	end
 
   	def logged_in?
