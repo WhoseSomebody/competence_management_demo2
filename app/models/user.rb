@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
 
   has_secure_password
   
-  has_surveys
+
   # attr_accessible :name, :login, :password, :password_confirmation, :email 
 end
