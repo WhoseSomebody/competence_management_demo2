@@ -121,13 +121,13 @@ uk:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: має бути прийнятий
-      blank: не може бути порожнім
-      confirmation: не збігається з підтвердженням
-      empty: не може бути порожнім
-      equal_to: має дорівнювати %{count}
-      even: має бути парним
-      exclusion: зарезервовано
+      accepted: Має бути прийнятий.
+      blank: Не може бути порожнім.
+      confirmation: Підтвердження не збігається.
+      empty: Не може бути порожнім.
+      equal_to: Має дорівнювати %{count}.
+      even: Має бути парним.
+      exclusion: Зарезервовано.
       greater_than: має бути більше ніж %{count}
       greater_than_or_equal_to: має бути більше ніж або дорівнювати %{count}
       inclusion: не включено до переліку

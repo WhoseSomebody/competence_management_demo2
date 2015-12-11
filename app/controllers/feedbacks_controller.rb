@@ -1,10 +1,12 @@
 class FeedbacksController < ApplicationController
+  skip_before_action :ensure_login
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
 
   # GET /feedbacks
   # GET /feedbacks.json
   def index
     @feedback = Feedback.new
+
     @feedbacks_p = Feedback.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
   end
 

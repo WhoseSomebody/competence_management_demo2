@@ -3,12 +3,11 @@
 		%table
 			%tbody{:height => "50px"}
 				%tr
-				
 					%td.logo.link
 						%a{:href => "/", :title => "На Головну"}
 							%div{:style => "float:left;width:20%;"}
 								= image_tag "logo1", size: '50x50', :style=>"margin:-3px 20px 0 0"
-							%div{:style => "float:left;width:80%;"}
+							%div{:style => "float:left;width:80%;margin-top:-10px;"}
 								%i{:style => "font-size:small; margin: -50px 0 0 0;"} КЕРУВАННЯ КОМПЕТЕНЦІЯМИ СТУДЕНТІВ ІТ-ПРОФЕСІЙ УКРАЇНИ
 					%td{:style=>"width:210px"}
 						/ %form{:action => "http://www.google.com", :method => "get", :style => "float:right; margin: 0 auto;"}
@@ -16,10 +15,15 @@
 						/ 	%input.tfbutton{:type => "submit", :value => "Пошук"}
 					%td.link
 						= link_to "Енциклопедія", "encyclopedia", :title => "Перегляд енциклопедії"
-					%td.link
-						= link_to 'Вхід', "/log_in", :title => "Увійти"
-					%td.link
-						= link_to 'Реєстрація',  "/sign_in", :title => "Реєстрація"
+					- if !logged_in?
+						%td.link
+							= link_to 'Вхід', "/login", :title => "Увійти"
+						%td.link
+							= link_to 'Реєстрація',  "/users", :title => "Реєстрація"
+					- else
+						%td Привіт, #{current_user.name}!
+						%td.link
+							= link_to 'Вийти', logout_path, method: :delete
 
 				
 					

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105212848) do
+ActiveRecord::Schema.define(version: 20151210174617) do
 
   create_table "accountabilities", force: :cascade do |t|
     t.text     "description"
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 20151105212848) do
 
   create_table "competences", force: :cascade do |t|
     t.string   "name"
-    t.text     "function"
     t.string   "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -198,13 +197,13 @@ ActiveRecord::Schema.define(version: 20151105212848) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "login"
-    t.string   "password"
+    t.string   "password_digest"
     t.string   "email"
     t.integer  "profession_id"
     t.integer  "rating"
     t.integer  "group"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["profession_id"], name: "index_users_on_profession_id"

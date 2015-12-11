@@ -1,0 +1,45 @@
+
+= form_for @user do |f|
+  / - if @user.errors.any?
+  /   %div.error_messages
+  /     %h2 Form is invalid
+  /     %ul
+  /       - @user.errors.full_messages.each do |message|
+  /         %li= message
+  .form_signup
+    %div Логін:
+    = f.text_field :login, class: @user.errors[:login].any? ? "error_input" : "" 
+    - if @user.errors[:login].any?
+      %ul.error_block
+        - @user.errors[:login].each do |m|
+          %li.error_message= m
+
+    %div Email:
+    = f.text_field :email, class: @user.errors[:email].any? ? "error_input" : ""
+    - if @user.errors[:email].any?
+      %ul.error_block
+        - if @user.errors[:email].first.include?("@") 
+          %li.error_message= "Введено невірний імейл."
+        - else
+          %li.error_message= @user.errors[:email].first
+
+    %div Пароль:
+    = f.password_field :password, class: @user.errors[:password].any? ||  @user.errors[:password_confirmation].any? ? "error_input" : ""
+    - if @user.errors[:password].any?
+      %ul.error_block
+        %li.error_message= @user.errors[:password].first
+
+    %div Підтвердіть пароль:
+    = f.password_field :password_confirmation, class: @user.errors[:password_confirmation].any? ? "error_input" : ""
+    - if @user.errors[:password_confirmation].any?
+      %ul.error_block
+        %li.error_message= @user.errors[:password_confirmation].first
+
+    %div Ваше повне ім’я:
+    = f.text_field :name, class: @user.errors[:name].any? ? "error_input" : ""
+    - if @user.errors[:name].any?
+      %ul.error_block
+        %li.error_message= @user.errors[:name].first
+
+    %div
+      = f.submit 'Зареєструватися'
