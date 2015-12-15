@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211083555) do
+ActiveRecord::Schema.define(version: 20151215055200) do
 
   create_table "accountabilities", force: :cascade do |t|
     t.text     "description"
@@ -116,6 +116,21 @@ ActiveRecord::Schema.define(version: 20151211083555) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+# Could not dump table "sqlite_stat1" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+# Could not dump table "sqlite_stat4" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
+
+  create_table "statistics", force: :cascade do |t|
+    t.string   "user"
+    t.string   "tname"
+    t.string   "score"
+    t.string   "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "survey_answers", force: :cascade do |t|

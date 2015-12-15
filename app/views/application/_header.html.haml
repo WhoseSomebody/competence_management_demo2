@@ -6,10 +6,11 @@
 					%td.logo.link
 						%a{:href => "/", :title => "На Головну"}
 							%div{:style => "float:left;width:20%;"}
-								= image_tag "logo1", size: '50x50', :style=>"margin:-3px 20px 0 0"
+								= image_tag "logo1", size: '50x50', :class => "logoimg"
 							%div{:style => "float:left;width:80%;margin-top:-10px;"}
 								%b{:style => "font-size:small; margin: -50px 0 0 0;"} КЕРУВАННЯ КОМПЕТЕНЦІЯМИ СТУДЕНТІВ ІТ-ПРОФЕСІЙ УКРАЇНИ
-					%td{:style=>"width:210px"} 
+					%td{:style=>"width:10px"} 
+					%td{:style=>"width:200px"} 
 						- if logged_in?
 							%b Привіт, #{current_user.name}!
 						/ %form{:action => "http://www.google.com", :method => "get", :style => "float:right; margin: 0 auto;"}

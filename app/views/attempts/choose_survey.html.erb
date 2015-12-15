@@ -8,27 +8,35 @@
   </p>
 <% else %>
  
-  <h3>Доступні тести:</h3>
+  <h3>Наявні тести:</h3>
   <ul>
   	<% i = 0 %>
   	<% @active_surveys.each do |f| %>
   	  <% if f.avaliable_for_participant?(@participant)  %>
       	<li> <h3> <%= link_to f.name, "/survey/#{i}" %> </h3>
           <p><%= f.description %></p>
-          <p><i>У вас 
-            
-            
-            лишилося  спроб: </i>
+          <p><i>У вас лишилося  спроб: </i>
             <b>
             <%if f.attempts_number == 0 %> 
             <%= "безліч." %>
             <% else %>
-            <%= f.attempts_number %>.
+            <%= "#{f.attempts_number-f.attempts.where(:participant_id => @participant.id).scores.count}" %> з <%= f.attempts_number %> .
             <% end %>
             </b>
           </p></li>	  
-
+      <% else %>
+        <h4> <%= f.name %> </h4>
+        <p>На жаль, всі спроби (<%= f.attempts_number %>) вичерпано</p>
       <% end %>
+      
+        <% if !f.attempts.where(:participant_id => @participant.id).scores.order("score DESC").first.nil? %>
+          <p>
+            Найкращий результат: 
+            <%= f.attempts.where(:participant_id => @participant.id).maximum('score') %>.     
+            <!-- <%= f.attempts.where(:participant_id => @participant.id).scores.order("score DESC").first.score %>. -->
+          </p>
+        <% end %>
+      
       <% i += 1 %>
     <% end %>
   </ul>

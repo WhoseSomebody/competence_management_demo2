@@ -1,0 +1,2 @@
+module AttemptStatisticHelper
+end

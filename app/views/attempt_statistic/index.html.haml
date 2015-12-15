@@ -1,0 +1,32 @@
+%h1.st{:style => 'text-align: center;'} Статистика
+/ =form_tag :action => :index, :method => 'get'  do
+/ 	/ = select_tag "filter_col", options_for_select([["Користувач", "participant_id"],["Результат", "score"],["Час проходження","created_at"]])
+/ 	/ = select_tag "value", options_for_select(Survey::Attempt.find_by_sql(["SELECT COUNT(*) FROM 'survey_attempts'"]))
+/ 	= text_field :filter_col
+/ 	= text_field :value
+/ 	= submit_tag "Фільтрувати"
+/ %form{:method => "get"}
+/ 	- @options = Survey::Attempt.all.map{ |a| [ a.id, a.participant_id ] }
+/ 		= select_tag("filter_col", options_for_select(@options))
+/ 	%input{:type => "submit", :value => "Фільтрувати"}
+%table.stat
+	%thead
+		%tr
+			%th 
+				= sortable 'participant_id', "Користувач"
+			/ %th Назва тесту
+			%th 
+				= sortable 'score', "Результат"
+			%th 
+				= sortable 'created_at', "Час проходження"
+	%tbody
+		- @attempts.each do |f|
+			%tr
+				%td 
+					= f.participant.name
+				/ %td 
+				/ 	= f.survey.name
+				%td 
+					= f.score
+				%td 
+					= l f.created_at, format: "%a %d %b %H:%M"	

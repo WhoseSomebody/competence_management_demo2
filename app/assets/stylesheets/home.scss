@@ -11,17 +11,20 @@
 	float:left;
 }
 .right {
-    width: 20%;
+    width: 23%;
     float: right;
     background: rgba(230, 210, 230, 0.1);
+    box-shadow: inset #81C3C3 0px 0px 23px 0px;
+    border-radius: 70px;
+    margin: 4% 0;
 }
 .right:hover {
-	background:rgba(230,210,230,.5);
+	background:rgba(30,200,100,.2);
 }
 .right a {
-
     display: block;
-    box-shadow: inset #81C3C3 0px 0px 23px 0px;
+    box-shadow: #81C40F 0px 0px 65px 0px;
+    border-radius: 70px;
 }
 .right a img {
 	padding: 182px 15px;

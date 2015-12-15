@@ -1,8 +1,9 @@
 class AttemptsController < ApplicationController
   skip_before_action :admin_login
   helper 'surveys'
-
+  before_filter :load_active_survey
   before_filter :normalize_attempts_data, :only => :create
+
 
   def new
     @participant = current_user # you have to decide what to do here
@@ -18,11 +19,12 @@ class AttemptsController < ApplicationController
     @attempt.participant = current_user
 
     if @attempt.valid? && @attempt.save
-      redirect_to view_context.new_attempt, alert: I18n.t("attempts_controller.#{action_name}")
+      # redirect_to view_context.new_attempt, alert: I18n.t("attempts_controller.#{action_name}")
       # redirect_to root_path, alert: "Тест збережено!"
+      redirect_to '/choose_survey', notice: "Тест збережено! Ваш останній результат: #{@attempt.score}"
     else
       #render :action => :new
-      redirect_to '/choose_survey', notice: "Тест збережено!"
+      redirect_to '/choose_survey', notice: "Тест не збережено :( Трапилася помилка.."
     end
   end
 

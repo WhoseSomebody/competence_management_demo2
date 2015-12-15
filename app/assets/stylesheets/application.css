@@ -179,6 +179,13 @@ header {
 }
 #menu td.link:hover {
 	background: white;
+	border-radius: 10px;
+	box-shadow: inset aquamarine 0 0 10px 0;
+}
+#menu td.link a {
+	height: 100%;
+    /* padding: 0px 10px; */
+    display: block;
 }
 #menu a {
 	height: 100%;
@@ -186,4 +193,14 @@ header {
 }
 h1, h2, h3 {
 	color: rgb(83, 125, 255);
+}
+.logoimg {
+	margin: -14px 23px -2px 0px;
+    border-radius: 50px;
+    transition: .4s ease-out;
+    transition-delay: 0.5s;
+}
+td.logo.link a:hover {
+	border-radius: 10px;
+	box-shadow: inset aquamarine 0 0 10px 0;
 }

@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   resources :surveys
   get '/survey/:id' => 'attempts#new'
   get '/choose_survey' => 'attempts#choose_survey'
+
+  get '/stastistics' => 'attempt_statistic#index'
+
   
   # get "/signup" => "users#index", as: "signup"
   # post "/signup" => "users#show"
