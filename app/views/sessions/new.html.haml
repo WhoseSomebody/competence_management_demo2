@@ -1,19 +1,25 @@
-%h1 Увійти
+- if !logged_in?
+	%h1 Увійти
 
 - if flash[:alert]
 	.notice= flash[:alert]
+- if !logged_in?
+	= form_for(:user, url: sessions_path) do |f|
+		%div.field
+			= f.label :login, "Логін"
+			%br
+			= f.text_field :login
+		%p
 
-= form_for(:user, url: sessions_path) do |f|
-	%div.field
-		= f.label :login, "Логін"
-		%br
-		= f.text_field :login
-	%p
+		%div.field
+			= f.label :password, "Пароль"
+			%br
+			= f.password_field :password
 
-	%div.field
-		= f.label :password, "Пароль"
-		%br
-		= f.password_field :password
-
-	%div.actions 
-		= f.submit "Вхід"
+		%div.actions 
+			= f.submit "Вхід"
+- else
+	%br
+	%br
+	%br
+	= link_to raw("<h2 style='text-align: center;'>Ви можете вийти та зайти під іншим логіном. </h2>"), logout_path, method: :delete 

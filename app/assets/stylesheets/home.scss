@@ -2,29 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .whole {
-	min-height:827px; 
+	min-height:74%; 
 	padding:0;
 }
 .left {
 	text-align:center; 
-	width:80%; 
+	width:71%; 
 	float:left;
-	height:827px; 
 }
 .right {
-	width:20%;
-	height:827px; 
-	padding-bottom:20px;
-	float:right;
-	background:rgba(230,210,230,.1);
+    width: 20%;
+    float: right;
+    background: rgba(230, 210, 230, 0.1);
 }
 .right:hover {
 	background:rgba(230,210,230,.5);
 }
 .right a {
-	height:100%; 
-	display:block;
+
+    display: block;
+    box-shadow: inset #81C3C3 0px 0px 23px 0px;
 }
 .right a img {
-	padding: 245px 15px;
+	padding: 182px 15px;
 }

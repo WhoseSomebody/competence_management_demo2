@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
   # get 'sessions/new'
 
   # get 'sessions/create'
@@ -24,6 +25,11 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :attempts
+  resources :surveys
+  get '/survey/:id' => 'attempts#new'
+  get '/choose_survey' => 'attempts#choose_survey'
+  
   # get "/signup" => "users#index", as: "signup"
   # post "/signup" => "users#show"
   # The priority is based upon order of creation: first created -> highest priority.

@@ -4,12 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :ensure_login
-  helper_method :logged_in?, :current_user
+  before_action :admin_login
+  helper_method :logged_in?, :current_user, :admin_check
 
   protected 
   	def ensure_login
   		redirect_to "/login" unless session[:user_id]
   	end
+
+    def admin_login
+      redirect_to "/" unless admin_check
+    end
 
   	def logged_in?
   		session[:user_id]
@@ -18,4 +23,8 @@ class ApplicationController < ActionController::Base
   	def current_user
   		@current_user ||= User.find(session[:user_id])
   	end
+
+    def admin_check
+      logged_in? && current_user.group == 0
+    end
 end

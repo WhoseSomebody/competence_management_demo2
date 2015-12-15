@@ -12,7 +12,17 @@
  *
  *= require_tree .
  *= require_self
+ *= require owl.carousel
+ *= require owl.theme
  */
+ div.owl-carousel div {
+ 	text-align: center;
+ }
+ .main > * {
+ 	margin-left: 15px;
+ 	margin-right: 15px;
+ 	
+ }
  .footing { 
  	margin:0 auto;
  }
@@ -24,20 +34,26 @@
 	padding: 10px 0;	
 	width:815px;
 	margin: 0 auto;
- }
+	border-bottom: 5px solid #8BA1F1;
+    border-top: 5px solid #4161BB;
+    border-left: 3px solid #C6C9DE;
+    border-right: 3px solid #C6C9DE;
+}
+
  body {
- 	margin: 0;
- 	position: relative;
  	
+ 	position: relative;
+ 	margin: 0;
  }
  .main {
  	width:791px;
  	margin:0 auto;
  	background: white;
- 	min-height: 100%;
- 	padding-bottom:60px;
+ 	min-height: 83%;
+ 	padding-bottom:8px;
  	border-left: 2px solid #aaf;
  	border-right: 2px solid #aaf;
+ 	box-shadow: aliceblue 0 0 20px 14px;
  }
  .main > * {
  	margin-top:0;
@@ -123,10 +139,10 @@ table.partners tr:hover h1{
 
 a {
 	text-decoration: none;
-	color: rgba(255, 154, 155, 1);
+	color: rgb(185, 130, 47);
 }
 a:visited {
- 	color: rgba(255, 154, 155, 1);
+ 	color: rgb(185, 130, 47);
 }
 header {
 	background: rgba(240,240,240,1);
@@ -134,7 +150,13 @@ header {
 	height: 50px;
 	width:815px;
 	margin: 0 auto;
+	border-top: 5px solid #8BA1F1;
+    border-bottom: 5px solid #4161BB;
+    border-left: 3px solid #C6C9DE;
+    border-right: 3px solid #C6C9DE;
+    z-index: 3;
 }
+
 
 #menu {
 	height: 50px;
@@ -163,5 +185,5 @@ header {
 	padding: 15px 10px;
 }
 h1, h2, h3 {
-	color: rgba(255, 104, 115, 1);
+	color: rgb(83, 125, 255);
 }

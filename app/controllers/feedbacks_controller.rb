@@ -1,5 +1,6 @@
 class FeedbacksController < ApplicationController
   skip_before_action :ensure_login
+  skip_before_action :admin_login
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
 
   # GET /feedbacks

@@ -1,0 +1,36 @@
+<h1>Обрати тест для проходження</h1>
+<% if flash[:notice] %>
+  <div class='notice'> <%= flash[:notice] %> </div>
+<% end %>
+<% if @active_surveys.nil? %>
+  <p>
+    <%= @participant.email %> there are not Active Surveys right now.
+  </p>
+<% else %>
+ 
+  <h3>Доступні тести:</h3>
+  <ul>
+  	<% i = 0 %>
+  	<% @active_surveys.each do |f| %>
+  	  <% if f.avaliable_for_participant?(@participant)  %>
+      	<li> <h3> <%= link_to f.name, "/survey/#{i}" %> </h3>
+          <p><%= f.description %></p>
+          <p><i>У вас 
+            
+            
+            лишилося  спроб: </i>
+            <b>
+            <%if f.attempts_number == 0 %> 
+            <%= "безліч." %>
+            <% else %>
+            <%= f.attempts_number %>.
+            <% end %>
+            </b>
+          </p></li>	  
+
+      <% end %>
+      <% i += 1 %>
+    <% end %>
+  </ul>
+
+<% end %>

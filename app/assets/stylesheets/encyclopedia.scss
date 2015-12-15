@@ -58,6 +58,10 @@ ul.collapsibleList {
 .collapsibleList li{
   cursor:auto;
 }
+.collapsibleList h2, h3, h1, p{
+  margin-left: 20px;
+}
+
 
 li.collapsibleListOpen{
   cursor:pointer;

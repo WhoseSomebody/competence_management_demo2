@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
 
   belongs_to :profession
-  has_many :test_sessions
+
 
   has_secure_password
   
-
+  has_surveys
   # attr_accessible :name, :login, :password, :password_confirmation, :email 
 end

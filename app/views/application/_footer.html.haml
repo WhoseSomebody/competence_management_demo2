@@ -5,3 +5,8 @@
 		= link_to 'Зворотній зв’язок',  :controller => :feedbacks, :action => :index
 		%span.separator 
 		= link_to 'Партнери',  :controller => :home, :action => :partners
+		- if admin_check
+			%span.separator 
+			= link_to "Створити тест", :controller => :surveys, :action => :new
+			%span.separator 
+			= link_to "В адмінку!", '/admin/', :target => '_blank'

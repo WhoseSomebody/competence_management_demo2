@@ -8,8 +8,10 @@
 							%div{:style => "float:left;width:20%;"}
 								= image_tag "logo1", size: '50x50', :style=>"margin:-3px 20px 0 0"
 							%div{:style => "float:left;width:80%;margin-top:-10px;"}
-								%i{:style => "font-size:small; margin: -50px 0 0 0;"} КЕРУВАННЯ КОМПЕТЕНЦІЯМИ СТУДЕНТІВ ІТ-ПРОФЕСІЙ УКРАЇНИ
-					%td{:style=>"width:210px"}
+								%b{:style => "font-size:small; margin: -50px 0 0 0;"} КЕРУВАННЯ КОМПЕТЕНЦІЯМИ СТУДЕНТІВ ІТ-ПРОФЕСІЙ УКРАЇНИ
+					%td{:style=>"width:210px"} 
+						- if logged_in?
+							%b Привіт, #{current_user.name}!
 						/ %form{:action => "http://www.google.com", :method => "get", :style => "float:right; margin: 0 auto;"}
 						/ 	%input.tftextinput{:maxlength => "120", :name => "q", :size => "21", :type => "text"}
 						/ 	%input.tfbutton{:type => "submit", :value => "Пошук"}
@@ -21,7 +23,9 @@
 						%td.link
 							= link_to 'Реєстрація',  "/users", :title => "Реєстрація"
 					- else
-						%td Привіт, #{current_user.name}!
+						%td.link{:style => "text-align: center;"}
+							= link_to 'Тестування', :controller => :attempts, :action => :choose_survey
+
 						%td.link
 							= link_to 'Вийти', logout_path, method: :delete
 

@@ -1,4 +1,5 @@
 class ProfessionsController < ApplicationController
+  skip_before_action :admin_login
   before_action :set_profession, only: [:show, :edit, :update, :destroy]
 
   # GET /professions
